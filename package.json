@@ -18,11 +18,16 @@
   },
   "homepage": "https://github.com/jdionisio2113/reddit#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "babel-polyfill": "^6.26.0",
+    "cross-fetch": "^3.0.3",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
