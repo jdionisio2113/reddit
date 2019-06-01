@@ -31,7 +31,7 @@ function posts(
     case REQUESTS_POSTS:
       return Object.assign({}, state, {
         isFetching: true,
-        didIncalidate: false
+        didInvalidate: false
       });
     case RECEIVE_POSTS:
       return Object.assign({}, state, {
@@ -44,3 +44,23 @@ function posts(
       return state;
   }
 }
+
+function postsBySubreddit(state = {}, action) {
+  switch (action.type) {
+    case INVALIDATE_SUBREDDIT:
+    case RECEIVE_POSTS:
+    case REQUEST_POSTS:
+      return Object.assign({}, state, {
+        [action.subreddit]: posts(state[action.subreddit], action)
+      });
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  postsBySubreddit,
+  selectedSubreddit
+});
+
+export default rootReducer;
