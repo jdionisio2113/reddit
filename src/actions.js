@@ -1,4 +1,5 @@
 import fetch from "cross-fetch";
+import "babel-polyfill";
 
 // User can select a subreddit to display
 export const SELECT_SUBREDDIT = "SELECT_SUBREDDIT";
