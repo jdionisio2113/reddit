@@ -1,5 +1,4 @@
 import fetch from "cross-fetch";
-import "babel-polyfill";
 
 // User can select a subreddit to display
 export const SELECT_SUBREDDIT = "SELECT_SUBREDDIT";
@@ -58,5 +57,26 @@ export function fetchPosts(subreddit) {
         // Update app state with results of API
         dispatch(receivePosts(subreddit, json))
       );
+  };
+}
+
+function shouldFetchPosts(state, subreddit) {
+  const posts = state.postsBySubreddit[subreddit];
+  if (!posts) {
+    return true;
+  } else if (posts.isFetching) {
+    return false;
+  } else {
+    return posts.didInvalidate;
+  }
+}
+
+export function fetchPostsIfNeeded(subreddit) {
+  return (dispatch, getState) => {
+    if (shouldFetchPosts(getState(), subreddit)) {
+      return dispatch(fetchPosts(subreddit));
+    } else {
+      return Promise.resolve();
+    }
   };
 }
