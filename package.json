@@ -19,8 +19,10 @@
   "homepage": "https://github.com/jdionisio2113/reddit#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "add": "^2.0.6",
     "babel-polyfill": "^6.26.0",
     "cross-fetch": "^3.0.3",
+    "git": "^0.1.5",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
