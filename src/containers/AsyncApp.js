@@ -53,12 +53,11 @@ class AsyncApp extends Component {
         <p>
           {lastUpdated && (
             <span>
-              {/* Time it updated */}
               Last updated at {new Date(lastUpdated).toLocaleTimeString()}.{" "}
             </span>
           )}
           {!isFetching && (
-            <button onClick={this.handleRefreshClick}>Refresh</button> //Refresh subreddit
+            <button onClick={this.handleRefreshClick}>Refresh</button>
           )}
         </p>
         {isFetching && posts.length === 0 && <h2>Loading...</h2>}

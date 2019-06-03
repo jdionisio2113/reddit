@@ -4,7 +4,7 @@ import {
   INVALIDATE_SUBREDDIT,
   REQUEST_POSTS,
   RECEIVE_POSTS
-} from "../actions";
+} from "./actions";
 
 function selectedSubreddit(state = "reactjs", action) {
   switch (action.type) {
@@ -28,7 +28,7 @@ function posts(
       return Object.assign({}, state, {
         didInvalidate: true
       });
-    case REQUESTS_POSTS:
+    case REQUEST_POSTS:
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
